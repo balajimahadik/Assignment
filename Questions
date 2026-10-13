@@ -1,0 +1,222 @@
+
+// 1. Reverse a String
+// Input: "hello" | Output: "olleh"
+function reverseString(str) {
+    return str.split("").reverse().join("")
+}
+console.log(reverseString("hello"))
+
+
+// 2. Factorial of a Number
+// Input: 5 | Output: 120
+function factorial(n) {
+    if (n < 0) {
+     return "Invalid input"
+    }
+
+    let result = 1
+
+    for (let i = 1; i <= n; i++) {
+        result *= i
+    }
+
+    return result
+}
+console.log(factorial(5))
+
+
+// 3. Check for Palindrome
+// Input: "madam" | Output: true
+function isPalindrome(str) {
+    return str === str.split("").reverse().join("")
+}
+console.log(isPalindrome("madam"))
+
+
+// 4. Find the Largest Number in an Array
+// Input: [10, 25, 5, 40, 15] | Output: 40
+function largestNumber(arr) {
+    return Math.max(...arr)
+}
+console.log(largestNumber([10, 25, 5, 40, 15]))
+
+
+// 5. Sum All Numbers in an Array
+// Input: [1, 2, 3, 4, 5] | Output: 15
+function sumArray(arr) {
+    return arr.reduce((sum, num) => sum + num, 0)
+}
+console.log(sumArray([1, 2, 3, 4, 5]))
+
+
+// 6. Count Vowels in a String
+// Input: "hello" | Output: 2
+function countVowels(str) {
+    let count = 0
+
+    for (let char of str.toLowerCase()) {
+        if ("aeiou".includes(char)) {
+            count++
+        }
+    }
+
+    return count
+}
+console.log(countVowels("hello"))
+
+
+// 7. Generate Fibonacci Sequence
+// Input: 7 | Output: [0, 1, 1, 2, 3, 5, 8]
+function fibonacci(n) {
+    let arr = []
+
+    for (let i = 0; i < n; i++) {
+        if (i === 0) {
+            arr.push(0)
+        } else if (i === 1) {
+            arr.push(1)
+        } else {
+            arr.push(arr[i - 1] + arr[i - 2])
+        }
+    }
+
+    return arr
+}
+console.log(fibonacci(7))
+
+
+// 8. Check Even or Odd
+// Input: 7 | Output: "Odd"
+function evenOrOdd(n) {
+    return n % 2 === 0 ? "Even" : "Odd"
+}
+console.log(evenOrOdd(7))
+
+
+// 9. Capitalize First Letter of Each Word
+// Input: "hello world" | Output: "Hello World"
+function capitalizeWords(str) {
+    return str
+        .toLowerCase()
+        .replace(/\b\w/g, char => char.toUpperCase())
+}
+console.log(capitalizeWords("hello world"))
+
+
+// 10. Remove Duplicates from an Array
+// Input: [1, 2, 2, 3, 3, 4] | Output: [1, 2, 3, 4]
+function removeDuplicates(arr) {
+    return [...new Set(arr)]
+}
+console.log(removeDuplicates([1, 2, 2, 3, 3, 4]))
+
+
+// 11. Check if a Number is Prime
+// Input: 7 | Output: true
+function isPrime(n) {
+    if (n < 2) return false
+
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false
+        }
+    }
+
+    return true
+}
+console.log(isPrime(7))
+
+
+// 12. Convert Celsius to Fahrenheit
+// Formula: (Celsius * 9/5) + 32
+// Input: 25 | Output: 77
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32
+}
+console.log(celsiusToFahrenheit(25))
+
+
+// 13. Find the Longest Word in a Sentence
+// Input: "I love JavaScript programming" | Output: "programming"
+function longestWord(sentence) {
+    let words = sentence.trim().split(/\s+/)
+    let longest = ""
+
+    for (let word of words) {
+        if (word.length > longest.length) {
+            longest = word
+        }
+    }
+
+    return longest
+}
+console.log(longestWord("I love JavaScript programming"))
+
+
+// 14. Count Words in a Sentence
+// Input: "I love JavaScript" | Output: 3
+function countWords(sentence) {
+    let trimmed = sentence.trim()
+
+    return trimmed === "" ? 0 : trimmed.split(/\s+/).length
+}
+console.log("14. Word Count:", countWords("I love JavaScript"))
+
+
+// 15. Replace All Occurrences of a Word
+// Input: "Java is good. Java is popular."
+// Replace "Java" with "JavaScript"
+
+const str="Java is good. Java is popular."
+console.log(str.replaceAll("Java", "JavaScript"))
+
+
+// 16. Find the Second Largest Number in an Array
+// Input: [10, 20, 40, 30, 40] | Output: 30
+// Finds the second-largest DISTINCT number.
+function secondLargest(arr) {
+    let unique = [...new Set(arr)]
+
+    if (unique.length < 2) {
+        return "No second largest number"
+    }
+
+    unique.sort((a, b) => b - a)
+
+    return unique[1]
+}
+console.log(secondLargest([10, 20, 40, 30, 40]))
+
+
+// 17. Find Common Elements Between Two Arrays
+// Input: [1, 2, 3], [2, 3, 4] | Output: [2, 3]
+function commonElements(arr1, arr2) {
+    return [...new Set(arr1.filter(num => arr2.includes(num)))]
+}
+console.log(commonElements([1, 2, 3], [2, 3, 4]))
+
+
+// 18. Sort an Array of Numbers in Ascending Order
+// Input: [40, 10, 30, 20] | Output: [10, 20, 30, 40]
+function sortArray(arr) {
+    return [...arr].sort((a, b) => a - b)
+}
+console.log(sortArray([40, 10, 30, 20]))
+
+
+// 19. Repeat a String n Times
+// Input: "hi", 3 | Output: "hihihi"
+function repeatString(str, n) {
+    return str.repeat(n)
+}
+console.log(repeatString("hi", 3))
+
+
+// 20. Check if All Characters in a String Are Unique
+// Input: "hello" | Output: false
+// Input: "world" | Output: true
+function hasUniqueCharacters(str) {
+    return new Set(str).size === str.length
+}
+console.log(hasUniqueCharacters("hello"))
+console.log(hasUniqueCharacters("world"))
